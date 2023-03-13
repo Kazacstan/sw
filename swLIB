@@ -1059,7 +1059,6 @@ end
                 ["_Ignore5"] = Instance.new("BoolValue");
                 ["_Info"] = Instance.new("ImageLabel");
                 ["_UIAspectRatioConstraint2"] = Instance.new("UIAspectRatioConstraint");
-                ["_Credits"] = Instance.new("Frame");
                 ["_Main1"] = Instance.new("Frame");
                 ["_UICorner1"] = Instance.new("UICorner");
                 ["_UIListLayout"] = Instance.new("UIListLayout");
@@ -1388,13 +1387,6 @@ end
             Converted["_UIAspectRatioConstraint2"].DominantAxis = Enum.DominantAxis.Height
             Converted["_UIAspectRatioConstraint2"].Parent = Converted["_Info"]
 
-            Converted["_Credits"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            Converted["_Credits"].BackgroundTransparency = 1
-            Converted["_Credits"].Size = UDim2.new(1, 0, 1, 0)
-            Converted["_Credits"].Visible = false
-            Converted["_Credits"].Name = "Credits"
-            Converted["_Credits"].Parent = Converted["_Info"]
-
             Converted["_Main1"].AnchorPoint = Vector2.new(0.5, 0.5)
             Converted["_Main1"].AutomaticSize = Enum.AutomaticSize.X
             Converted["_Main1"].BackgroundColor3 = Color3.fromRGB(31.000000052154064, 31.000000052154064, 31.000000052154064)
@@ -1402,7 +1394,6 @@ end
             Converted["_Main1"].Size = UDim2.new(0, 1, 2.5, 0)
             Converted["_Main1"].ZIndex = 70
             Converted["_Main1"].Name = "Main"
-            Converted["_Main1"].Parent = Converted["_Credits"]
 
             Converted["_UICorner1"].CornerRadius = UDim.new(0, 6)
             Converted["_UICorner1"].Parent = Converted["_Main1"]
@@ -1467,7 +1458,6 @@ end
             Converted["_Arrow"].Rotation = 180
             Converted["_Arrow"].Size = UDim2.new(0, 10, 0, 10)
             Converted["_Arrow"].Name = "Arrow"
-            Converted["_Arrow"].Parent = Converted["_Credits"]
 
             Converted["_Theme6"].Value = "ImageColor3"
             Converted["_Theme6"].Name = "Theme"
@@ -2365,9 +2355,6 @@ end
                 end
             end)
 
-            local infoButton = utility:CreateButtonObject(lib.Main.Contents.Top.Info)
-            local infoDialogue = lib.Main.Contents.Top.Info.Credits
-
             infoButton.Activated:Connect(function()
                 infoDialogue.Visible = not infoDialogue.Visible
             end)
@@ -2521,9 +2508,6 @@ end
                 doSearch(searchBar.Text)
             end)
         end
-
-        lib.Main.Contents.Top.Info.Credits.Main.Frame.A.Text = info.Credit
-        lib.Main.Contents.Top.Title.Text = info.Name
 
         for _,v in pairs(lib:GetDescendants()) do
             if v:IsA("StringValue") and v.Name=="Theme" and v.Category.Value=="Main" then
